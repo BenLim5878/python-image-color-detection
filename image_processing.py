@@ -9,6 +9,11 @@ def dilate(img):
     # cv2.normalize(diff_img, norm_img, alpha=0, beta=255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_8UC1)
     return img_dilated
 
+def erode(img):
+    kernel = np.ones((5,5), np.uint8)
+    img_erode = cv2.erode(img,kernel)
+    return img_erode
+
 def addborder(img,border_size):
     img_border = cv2.copyMakeBorder(img, border_size, border_size, border_size, border_size, cv2.BORDER_CONSTANT, None, value=(255,255,255))
     return img_border
